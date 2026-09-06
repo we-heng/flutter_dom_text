@@ -15,11 +15,10 @@ Widget buildHtmlElement({
     key: key,
     tagName: tag,
     onElementCreated: (Object created) {
-      final element = created as dynamic;
-      element.innerText = text;
-      element.style.cssText = css;
-      element.style.pointerEvents = pointerEvents ? 'auto' : 'none';
       final htmlElement = created as web.HTMLElement;
+      htmlElement.innerText = text;
+      htmlElement.style.cssText = css;
+      htmlElement.style.pointerEvents = pointerEvents ? 'auto' : 'none';
 
       void reportSize() {
         onSizeChanged(

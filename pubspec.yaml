@@ -1,7 +1,8 @@
 name: dom_text
 description: "DomText is a widget modeled after Flutter's Text widget. It uses HtmlElementView to render text as real HTML."
-version: 0.0.1
+version: 0.0.2
 homepage: https://github.com/we-heng/flutter_dom_text
+repository: https://github.com/we-heng/flutter_dom_text
 
 environment:
   sdk: ^3.11.4

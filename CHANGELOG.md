@@ -1,4 +1,8 @@
-## 0.0.1 - 2026-09-05
+## 0.0.2 (2026-09-06)
+* Fixed HTML text disappearing in deployed and release-mode web builds by using typed DOM operations.
+* Added `example/serve_web.py` for serving compiled web output locally.
+
+## 0.0.1 (2026-09-05)
 * Initial release
 * `data` - The text content to display.
 * `key` - Identifier key. Used by Flutter to identify the widget and is not directly rendered into the HTML element.
