@@ -219,6 +219,195 @@ class _ShowcasePageState extends State<ShowcasePage>
                             fontStyle: FontStyle.italic,
                           ),
                         ),
+                        const SizedBox(height: 64),
+                        const DomText(
+                          'Comparison: Text vs DomText',
+                          style: TextStyle(
+                            color: Color(0xFF77E6C5),
+                            fontSize: 24,
+                            fontWeight: FontWeight.w800,
+                          ),
+                        ),
+                        const SizedBox(height: 24),
+                        Row(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Expanded(
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  const DomText(
+                                    'Standard Text Widget',
+                                    style: TextStyle(
+                                      color: Colors.white,
+                                      fontWeight: FontWeight.w700,
+                                      fontSize: 20,
+                                    ),
+                                  ),
+                                  const SizedBox(height: 24),
+                                  Container(
+                                    padding: const EdgeInsets.all(24),
+                                    decoration: BoxDecoration(
+                                      color: Colors.black38,
+                                      borderRadius: BorderRadius.circular(12),
+                                      border: Border.all(color: Colors.white10),
+                                    ),
+                                    child: const Text(
+                                      'Text(\n  \'Hello World\',\n  style: TextStyle(\n    color: Color(0xFFD2DCE8),\n    fontSize: 18,\n    height: 1.6,\n    fontFamily: \'Arial\',\n  ),\n  textAlign: TextAlign.start,\n  softWrap: true,\n  maxLines: 20,\n  overflow: TextOverflow.visible,\n)',
+                                      style: TextStyle(
+                                        color: Color(0xFFD2DCE8),
+                                        fontSize: 18,
+                                        height: 1.6,
+                                        fontFamily: 'Arial',
+                                      ),
+                                      textAlign: TextAlign.start,
+                                      softWrap: true,
+                                      maxLines: 20,
+                                      overflow: TextOverflow.visible,
+                                    ),
+                                  ),
+                                  const SizedBox(height: 16),
+                                  const DomText(
+                                    'Standard Flutter Text Widget',
+                                    style: TextStyle(
+                                      color: Color(0xFF9FB0C2),
+                                      fontSize: 14,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                            const SizedBox(width: 40),
+                            Expanded(
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  const DomText(
+                                    'DomText Widget',
+                                    style: TextStyle(
+                                      color: Colors.white,
+                                      fontWeight: FontWeight.w700,
+                                      fontSize: 20,
+                                    ),
+                                  ),
+                                  const SizedBox(height: 24),
+                                  Container(
+                                    padding: const EdgeInsets.all(24),
+                                    decoration: BoxDecoration(
+                                      color: Colors.black38,
+                                      borderRadius: BorderRadius.circular(12),
+                                      border: Border.all(color: Colors.white10),
+                                    ),
+                                    child: const DomText(
+                                      'DomText(\n  \'Hello World\',\n  htmlElement: \'p\',\n  style: TextStyle(\n    color: Color(0xFFD2DCE8),\n    fontSize: 18,\n    height: 1.6,\n    fontFamily: \'Arial\',\n  ),\n  textAlign: TextAlign.start,\n  softWrap: true,\n  maxLines: 20,\n  overflow: TextOverflow.visible,\n)',
+                                      htmlElement: 'p',
+                                      style: TextStyle(
+                                        color: Color(0xFFD2DCE8),
+                                        fontSize: 18,
+                                        height: 1.6,
+                                        fontFamily: 'Arial',
+                                      ),
+                                      textAlign: TextAlign.start,
+                                      softWrap: true,
+                                      maxLines: 20,
+                                      overflow: TextOverflow.visible,
+                                    ),
+                                  ),
+                                  const SizedBox(height: 16),
+                                  const DomText(
+                                    'Native HTML DomText Widget',
+                                    style: TextStyle(
+                                      color: Color(0xFF9FB0C2),
+                                      fontSize: 14,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ],
+                        ),
+                        const SizedBox(height: 72),
+                        const DomText(
+                          'Example 02 / Neon Editorial',
+                          style: TextStyle(
+                            color: Color(0xFFFF4D8D),
+                            fontSize: 24,
+                            fontWeight: FontWeight.w800,
+                          ),
+                        ),
+                        const SizedBox(height: 24),
+                        Row(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Expanded(
+                              child: Container(
+                                padding: const EdgeInsets.all(24),
+                                decoration: BoxDecoration(
+                                  color: const Color(0xFF241329),
+                                  border: Border.all(
+                                    color: const Color(0xFFFF4D8D),
+                                  ),
+                                  borderRadius: BorderRadius.circular(12),
+                                ),
+                                child: const Text(
+                                  'Text(\n  \'Make it loud\',\n  style: TextStyle(\n    color: Color(0xFFFF4D8D),\n    fontSize: 34,\n    fontFamily: \'Georgia\',\n    fontWeight: FontWeight.w800,\n    fontStyle: FontStyle.italic,\n    letterSpacing: 2.0,\n    wordSpacing: 6.0,\n    height: 1.25,\n    decoration: TextDecoration.underline,\n    decorationColor: Color(0xFFFFB3D1),\n    decorationStyle: TextDecorationStyle.wavy,\n    decorationThickness: 2.0,\n  ),\n  textAlign: TextAlign.center,\n  softWrap: true,\n  maxLines: 30,\n  overflow: TextOverflow.visible,\n)',
+                                  style: TextStyle(
+                                    color: Color(0xFFFF4D8D),
+                                    fontSize: 34,
+                                    fontFamily: 'Georgia',
+                                    fontWeight: FontWeight.w800,
+                                    fontStyle: FontStyle.italic,
+                                    letterSpacing: 2.0,
+                                    wordSpacing: 6.0,
+                                    height: 1.25,
+                                    decoration: TextDecoration.underline,
+                                    decorationColor: Color(0xFFFFB3D1),
+                                    decorationStyle: TextDecorationStyle.wavy,
+                                    decorationThickness: 2.0,
+                                  ),
+                                  textAlign: TextAlign.center,
+                                  softWrap: true,
+                                  maxLines: 30,
+                                  overflow: TextOverflow.visible,
+                                ),
+                              ),
+                            ),
+                            const SizedBox(width: 40),
+                            Expanded(
+                              child: Container(
+                                padding: const EdgeInsets.all(24),
+                                decoration: BoxDecoration(
+                                  color: const Color(0xFF102638),
+                                  border: Border.all(
+                                    color: const Color(0xFF35F2D0),
+                                  ),
+                                  borderRadius: BorderRadius.circular(12),
+                                ),
+                                child: const DomText(
+                                  'DomText(\n  \'Make it loud\',\n  style: TextStyle(\n    color: Color(0xFF35F2D0),\n    fontSize: 34,\n    fontFamily: \'Georgia\',\n    fontWeight: FontWeight.w800,\n    fontStyle: FontStyle.italic,\n    letterSpacing: 2.0,\n    wordSpacing: 6.0,\n    height: 1.25,\n    decoration: TextDecoration.underline,\n    decorationColor: Color(0xFF9FFFF0),\n    decorationStyle: TextDecorationStyle.wavy,\n    decorationThickness: 2.0,\n  ),\n  textAlign: TextAlign.center,\n  softWrap: true,\n  maxLines: 30,\n  overflow: TextOverflow.visible,\n)',
+                                  style: TextStyle(
+                                    color: Color(0xFF35F2D0),
+                                    fontSize: 34,
+                                    fontFamily: 'Georgia',
+                                    fontWeight: FontWeight.w800,
+                                    fontStyle: FontStyle.italic,
+                                    letterSpacing: 2.0,
+                                    wordSpacing: 6.0,
+                                    height: 1.25,
+                                    decoration: TextDecoration.underline,
+                                    decorationColor: Color(0xFF9FFFF0),
+                                    decorationStyle: TextDecorationStyle.wavy,
+                                    decorationThickness: 2.0,
+                                  ),
+                                  textAlign: TextAlign.center,
+                                  softWrap: true,
+                                  maxLines: 30,
+                                  overflow: TextOverflow.visible,
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
                       ],
                     ),
                   ),

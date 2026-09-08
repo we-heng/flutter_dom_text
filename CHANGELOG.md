@@ -1,8 +1,14 @@
-## 0.0.2 (2026-09-06)
+## 0.0.3
+* Added section to `example/main.dart` to contrast text rendered using standard Text widget and DomText widget.
+* Updated `README.md` to reflect the correct release version.
+* Updated DomText to more closely match Flutter’s standard Text widget, including improved font handling, text scaling, CSS styling, locale support, and corrected layout sizing to prevent excessive spacing.
+* Added dartdoc comments to the complete public DomText API.
+
+## 0.0.2
 * Fixed HTML text disappearing in deployed and release-mode web builds by using typed DOM operations.
 * Added `example/serve_web.py` for serving compiled web output locally.
 
-## 0.0.1 (2026-09-05)
+## 0.0.1
 * Initial release
 * `data` - The text content to display.
 * `key` - Identifier key. Used by Flutter to identify the widget and is not directly rendered into the HTML element.

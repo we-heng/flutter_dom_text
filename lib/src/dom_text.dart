@@ -7,26 +7,62 @@ import 'style_converter.dart';
 
 /// A [Text]-like widget that renders native HTML text on Flutter Web.
 class DomText extends StatefulWidget {
+  /// The plain text content rendered by the HTML element.
   final String data;
+
+  /// The Flutter text style converted to CSS for the HTML element.
   final TextStyle? style;
+
+  /// The minimum line dimensions used by the Flutter layout proxy.
   final StrutStyle? strutStyle;
+
+  /// How the text is aligned within its available width.
   final TextAlign? textAlign;
+
+  /// The direction in which the text flows.
   final TextDirection? textDirection;
+
+  /// The locale used for Flutter text layout and the HTML `lang` attribute.
   final Locale? locale;
+
+  /// Whether the text may wrap onto multiple lines.
   final bool? softWrap;
+
+  /// How text that exceeds its available space is handled.
   final TextOverflow? overflow;
+
+  /// The legacy multiplier used to scale the text.
   @Deprecated('Use textScaler instead')
   final double? textScaleFactor;
+
+  /// The text scaler applied by both Flutter layout and the HTML text.
   final TextScaler? textScaler;
+
+  /// The maximum number of lines rendered by the text.
   final int? maxLines;
+
+  /// An alternative label exposed to accessibility services.
   final String? semanticsLabel;
+
+  /// The identifier assigned to this text's semantics node.
   final String? semanticsIdentifier;
+
+  /// The basis used by Flutter to calculate the text width.
   final TextWidthBasis? textWidthBasis;
+
+  /// Controls how Flutter applies height to the first and last lines.
   final TextHeightBehavior? textHeightBehavior;
+
+  /// The browser selection color for the rendered text.
   final Color? selectionColor;
+
+  /// Whether the HTML element receives pointer events.
   final bool cursorEvent;
+
+  /// The supported HTML element used to render the text.
   final String htmlElement;
 
+  /// Creates text rendered as a native HTML element on Flutter Web.
   const DomText(
     this.data, {
     super.key,
@@ -101,6 +137,7 @@ class _DomTextState extends State<DomText> {
       textDirection: effectiveDirection,
       softWrap: effectiveSoftWrap,
       overflow: effectiveOverflow,
+      textScaler: effectiveScaler,
       maxLines: widget.maxLines,
       cursorEvent: widget.cursorEvent,
       tag: widget.htmlElement,
@@ -110,20 +147,12 @@ class _DomTextState extends State<DomText> {
       child: ConstrainedBox(
         constraints: BoxConstraints(
           minWidth: math.max(_htmlWidth, 0),
-          minHeight: math.max(
-            _htmlHeight,
-            widget.maxLines == null
-                ? 0
-                : (effectiveStyle.fontSize ?? 14) *
-                      (effectiveStyle.height ?? 1.2) *
-                      widget.maxLines!,
-          ),
+          minHeight: math.max(_htmlHeight, 0),
         ),
         child: Text(
           widget.data,
           style: effectiveStyle.copyWith(
             fontFamily: effectiveStyle.fontFamily ?? 'Roboto',
-            fontSize: (effectiveStyle.fontSize ?? 14) * 1.04,
           ),
           strutStyle: widget.strutStyle,
           textAlign: effectiveAlign,
@@ -152,6 +181,7 @@ class _DomTextState extends State<DomText> {
                 text: widget.data,
                 tag: widget.htmlElement,
                 css: css,
+                locale: widget.locale,
                 pointerEvents: widget.cursorEvent,
                 onSizeChanged: _onHtmlSizeChanged,
               ),

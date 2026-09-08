@@ -1,6 +1,6 @@
 # DomText
 
-[![pub package](https://img.shields.io/badge/pub-v0.0.1-blue.svg)](https://pub.dev/packages/dom_text)
+[![pub package](https://img.shields.io/badge/pub-v0.0.3-blue.svg)](https://pub.dev/packages/dom_text)
 [![license](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
 [![Flutter Web](https://img.shields.io/badge/Flutter-Web%20(CanvasKit%20%26%20WASM)-02569B?logo=flutter)](https://flutter.dev)
 
@@ -31,7 +31,7 @@ Add the latest published version to `pubspec.yaml`:
 
 ```yaml
 dependencies:
-  dom_text: ^0.0.1
+  dom_text: ^0.0.3
 ```
 
 Then run:

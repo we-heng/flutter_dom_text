@@ -6,6 +6,7 @@ String domTextCss({
   required TextDirection textDirection,
   required bool softWrap,
   required TextOverflow overflow,
+  required TextScaler textScaler,
   required int? maxLines,
   required bool cursorEvent,
   required String tag,
@@ -15,18 +16,22 @@ String domTextCss({
     'display: ${tag == 'span' ? 'inline-block' : 'block'}',
     'margin: 0',
     'padding: 0',
+    'border: 0',
+    'vertical-align: baseline',
     'pointer-events: ${cursorEvent ? 'auto' : 'none'}',
     'user-select: text',
     '-webkit-user-select: text',
     'direction: ${textDirection == TextDirection.rtl ? 'rtl' : 'ltr'}',
     'text-align: ${_cssTextAlign(textAlign)}',
     'white-space: ${softWrap ? 'normal' : 'nowrap'}',
-    "font-family: '${style.fontFamily ?? 'Roboto'}', sans-serif",
-    'font-size: ${style.fontSize ?? 14}px',
+    'font-family: ${_cssFontFamilies(style)}',
+    'font-size: ${textScaler.scale(style.fontSize ?? 14)}px',
     'font-weight: ${style.fontWeight?.value ?? 400}',
     'font-style: ${style.fontStyle == FontStyle.italic ? 'italic' : 'normal'}',
-    'line-height: ${style.height ?? 1.2}',
   ];
+  if (style.height != null) {
+    rules.add('line-height: ${style.height}');
+  }
   final color = style.color;
   if (color != null) {
     rules.add('color: ${_cssColor(color)}');
@@ -34,9 +39,23 @@ String domTextCss({
   if (style.letterSpacing != null) {
     rules.add('letter-spacing: ${style.letterSpacing}px');
   }
+  if (style.wordSpacing != null) {
+    rules.add('word-spacing: ${style.wordSpacing}px');
+  }
   final decoration = style.decoration;
   if (decoration != null) {
     rules.add('text-decoration: ${_cssDecoration(decoration)}');
+    if (style.decorationColor != null) {
+      rules.add('text-decoration-color: ${_cssColor(style.decorationColor!)}');
+    }
+    if (style.decorationStyle != null) {
+      rules.add(
+        'text-decoration-style: ${_cssDecorationStyle(style.decorationStyle!)}',
+      );
+    }
+    if (style.decorationThickness != null) {
+      rules.add('text-decoration-thickness: ${style.decorationThickness}');
+    }
   }
   if (!softWrap || maxLines == 1) {
     rules.add('overflow: hidden');
@@ -50,6 +69,24 @@ String domTextCss({
     rules.add('-webkit-line-clamp: $maxLines');
   }
   return '${rules.join('; ')};';
+}
+
+String _cssFontFamilies(TextStyle style) {
+  final families = <String>[
+    if (style.fontFamily != null) style.fontFamily!,
+    ...?style.fontFamilyFallback,
+    'Roboto',
+    'Noto Sans',
+    'sans-serif',
+  ];
+  return families.map(_cssFontFamily).join(', ');
+}
+
+String _cssFontFamily(String family) {
+  if (family == 'sans-serif' || family == 'serif' || family == 'monospace') {
+    return family;
+  }
+  return '"${family.replaceAll('"', '\\"')}"';
 }
 
 String _cssTextAlign(TextAlign align) => switch (align) {
@@ -79,3 +116,11 @@ String _cssDecoration(TextDecoration decoration) {
   }
   return values.isEmpty ? 'none' : values.join(' ');
 }
+
+String _cssDecorationStyle(TextDecorationStyle style) => switch (style) {
+  TextDecorationStyle.solid => 'solid',
+  TextDecorationStyle.double => 'double',
+  TextDecorationStyle.dotted => 'dotted',
+  TextDecorationStyle.dashed => 'dashed',
+  TextDecorationStyle.wavy => 'wavy',
+};

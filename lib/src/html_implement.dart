@@ -8,6 +8,7 @@ Widget buildHtmlElement({
   required String text,
   required String tag,
   required String css,
+  required Locale? locale,
   required bool pointerEvents,
   required ValueChanged<Size> onSizeChanged,
 }) {
@@ -18,6 +19,9 @@ Widget buildHtmlElement({
       final htmlElement = created as web.HTMLElement;
       htmlElement.innerText = text;
       htmlElement.style.cssText = css;
+      if (locale != null) {
+        htmlElement.lang = locale.toLanguageTag();
+      }
       htmlElement.style.pointerEvents = pointerEvents ? 'auto' : 'none';
 
       void reportSize() {
